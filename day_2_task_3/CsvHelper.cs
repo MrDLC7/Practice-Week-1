@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace day_2_task_2
+﻿namespace day_2_task_3
 {
     internal static class CsvHelper
     {
@@ -46,6 +40,19 @@ namespace day_2_task_2
                 }
             }
             return products;
+        }
+
+        //  Запис у файл CSV
+        public static void WriteCsv(string filepath, List<Product> products)
+        {
+            using (StreamWriter writer = new StreamWriter(filepath))
+            {
+                writer.WriteLine("Назва,Ціна,Категорія");
+                foreach (Product product in products)
+                {
+                    writer.WriteLine($"{product.Name},{product.Price},{product.Category}");
+                }
+            }
         }
     }
 }

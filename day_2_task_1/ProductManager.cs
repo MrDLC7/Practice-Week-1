@@ -3,14 +3,11 @@
 namespace day_2_task_1
 {
     internal static class ProductManager
-    {   
+    {
         //  Додавання товару
         public static void AddProduct(List<Product> products)
         {
-            // Налаштування кодування для вводу та виводу  
-            Console.OutputEncoding = Encoding.Unicode;
-            Console.InputEncoding = Encoding.Unicode;
-
+            SetEncoding();
             Console.Write("Введіть назву товару: ");
             string name = Console.ReadLine();
 
@@ -31,6 +28,7 @@ namespace day_2_task_1
         //  Видалення товару
         public static void RemoveProduct(List<Product> products)
         {
+            SetEncoding();
             Console.Write("Введіть назву товару для видалення: ");
             string name = Console.ReadLine();
 
@@ -49,6 +47,7 @@ namespace day_2_task_1
         //  Пошук товару
         public static void SearchProduct(List<Product> products)
         {
+            SetEncoding();
             Console.Write("Введіть назву товару для пошуку: ");
             string name = Console.ReadLine();
 
@@ -75,6 +74,13 @@ namespace day_2_task_1
                 Console.WriteLine($"|{product.Name, -20}|{product.Price, -16:C}|{product.Category, -20}|");
             }
             Console.WriteLine(new string('-', 60));
+        }
+
+        // Налаштування кодування для вводу та виводу
+        public static void SetEncoding()
+        {
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
         }
     }
 }

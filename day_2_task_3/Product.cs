@@ -1,4 +1,4 @@
-﻿namespace day_2_task_1
+﻿namespace day_2_task_3
 {
     internal class Product
     {
