@@ -13,7 +13,6 @@ namespace day_2_task_1
 
             Console.Write("Введіть назву товару: ");
             string name = Console.ReadLine();
-            Console.WriteLine(name);
 
             Console.Write("Введіть  ціну товару: ");
             if (!decimal.TryParse(Console.ReadLine(), out decimal price))
