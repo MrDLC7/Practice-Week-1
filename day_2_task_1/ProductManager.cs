@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace day_2_task_1
 {
     internal static class ProductManager
-    {
-        // Налаштування кодування консолі для підтримки українських символів  
-        Console.OutputEncoding = System.Text.Encoding.UTF8;  
+    {   
         //  Додавання товару
         public static void AddProduct(List<Product> products)
         {
+            // Налаштування кодування для вводу та виводу  
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
+
             Console.Write("Введіть назву товару: ");
             string name = Console.ReadLine();
+            Console.WriteLine(name);
 
             Console.Write("Введіть  ціну товару: ");
             if (!decimal.TryParse(Console.ReadLine(), out decimal price))
@@ -68,6 +67,7 @@ namespace day_2_task_1
         //  Відображення товарів у вигляді таблиці
         public static void DisplayTable(List<Product> products)
         {
+            Console.WriteLine(new string('-', 60));
             Console.WriteLine($"|{"Назва", -20}|{"Ціна", -16}|{"Категорія", -20}|");
             Console.WriteLine(new string('-', 60));
 

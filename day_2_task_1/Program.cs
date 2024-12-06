@@ -1,6 +1,4 @@
 ﻿using day_2_task_1;
-using System;
-using System.Collections.Generic;
 
 class Program
 {
