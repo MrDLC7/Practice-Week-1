@@ -17,7 +17,7 @@ public abstract class Vehicle
     //  Віртуальний метод
     public virtual void DisplayInfo()
     {
-        Console.WriteLine($"Трнспортний ззасіб: {Brand} {Model}, Рік випуску: {Year}");
+        Console.WriteLine($"Трнспортний ззасіб: {Brand} {Model}\nРік випуску: {Year}");
     }
 
     //  Абстрактний метод
@@ -100,5 +100,37 @@ public class Truck : Vehicle
     public override void StartEngine()
     {
         Console.WriteLine("Двигун вантажівки запустився");
+    }
+}
+
+//  Демонстрація роботи з об'єктами
+class Program
+{
+    static void Main(string[]args)
+    {
+        //  Створення об'єктів
+        Vehicle car = new Car("Toyota", "Camry", 2021, 4);
+        Vehicle motocycle = new Motocycle("Harley-Davidson", "Street 750", 2020, false);
+        Vehicle truck = new Truck("Volvo", "FH16", 2019, 20000);
+
+        //  Поліморфізм: виклик методів через базовиий клас
+        Vehicle[] vehicles = { car, motocycle, truck };
+        
+        foreach (var vehicle in vehicles)
+        {
+            vehicle.DisplayInfo();
+            vehicle.StartEngine();
+            Console.WriteLine();
+        }
+
+        //  Демонстрація обробки виключень
+        try
+        {
+            var invalidTruck = new Truck("Ford", "F-150", 2023, -500);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Помилка: {e.Message}");
+        }
     }
 }
