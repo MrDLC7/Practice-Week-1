@@ -118,8 +118,8 @@ class Program
         
         foreach (var vehicle in vehicles)
         {
-            vehicle.DisplayInfo();
-            vehicle.StartEngine();
+            vehicle.DisplayInfo();          //  Виведення на екран
+            vehicle.StartEngine();          //  Запустити мотор
             Console.WriteLine();
         }
 
