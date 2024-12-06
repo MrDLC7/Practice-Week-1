@@ -1,6 +1,7 @@
-﻿using System;                           //  Підключення простору імен для базових типів даних  
-using System.Collections.Generic;       //  Підключення простору імен для колекцій, таких як Dictionary  
-using System.Linq;                      //  Підключення простору імен для LINQ (Integrated Query)  
+﻿//  Демонстрація завдання 2
+using System;                       
+using System.Collections.Generic;        
+using System.Linq;                        
 
 class User
 {
