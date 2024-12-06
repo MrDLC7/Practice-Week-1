@@ -24,14 +24,14 @@
                     string[] values = line.Split(',');      //  Розділення рядків у точці коми
                     if (values.Length != 3)                 //  Якщо недостатньо полів
                     {
-                        throw new FormatException("Неправильний формат CSV.");
+                        throw new FormatException("\u001b[31mНеправильний формат CSV.\u001b[0m");
                     }
 
                     string name = values[0];                                //  Назва товару
 
                     if (!decimal.TryParse(values[1], out decimal price))    //  Ціна товару
                     {
-                        throw new FormatException($"Ціна '{values[1]}' має неправильний формат.");
+                        throw new FormatException($"\u001b[31mЦіна '{values[1]}' має неправильний формат.\u001b[0m");
                     }
 
                     string category = values[2];                            //  Категорія товару

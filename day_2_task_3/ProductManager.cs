@@ -14,7 +14,7 @@ namespace day_2_task_3
             Console.Write("Введіть  ціну товару: ");
             if (!decimal.TryParse(Console.ReadLine(), out decimal price))
             {
-                Console.WriteLine("Ціна введена не правильно.");
+                Console.WriteLine("\u001b[31mЦіна введена не правильно.\u001b[0m");
                 return;
             }
 
@@ -40,7 +40,7 @@ namespace day_2_task_3
             }
             else
             {
-                Console.WriteLine("Товар не знайдено");
+                Console.WriteLine("\u001b[31mТовар не знайдено\u001b[0m");
             }
         }
 
@@ -58,7 +58,7 @@ namespace day_2_task_3
             }
             else
             {
-                Console.WriteLine("Товар не знайдено");
+                Console.WriteLine("\u001b[31mТовар не знайдено\u001b[0m");
             }
         }
 
