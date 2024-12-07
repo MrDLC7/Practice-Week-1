@@ -1,7 +1,4 @@
 ﻿using day_2_task_3;
-/// <summary>
-///                     \u001b[31m Текст червоним кольром \u001b[0m
-/// </summary>
 class Program
 {
     static void Main()
@@ -31,7 +28,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"\u001b[31mПомилка зчитування CSV: {ex.Message}\u001b[0m");
+            ConsoleUtility.TextColorRed($"Помилка зчитування CSV: {ex.Message}");
         }
 
         while (isRunning)
@@ -65,13 +62,13 @@ class Program
                         Console.WriteLine("Програма завершена.");
                         break;
                     default:
-                        Console.WriteLine("\u001b[31mНеправильний вибір. Спробуйте ще раз.\u001b[0m");
+                        ConsoleUtility.TextColorRed("Неправильний вибір. Спробуйте ще раз.");
                         break;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"\u001b[31mПомилка: {ex.Message}\u001b[0m");
+                ConsoleUtility.TextColorRed($"Помилка: {ex.Message}");
             }
             finally
             {

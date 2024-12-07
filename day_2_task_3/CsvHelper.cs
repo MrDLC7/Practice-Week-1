@@ -22,21 +22,38 @@
                     }
 
                     string[] values = line.Split(',');      //  Розділення рядків у точці коми
-                    if (values.Length != 3)                 //  Якщо недостатньо полів
+
+                    try
                     {
-                        throw new FormatException("\u001b[31mНеправильний формат CSV.\u001b[0m");
+                        if (values.Length != 3) // Якщо недостатньо полів  
+                        {
+                            // Встановлення червоного кольору тексту  
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            throw new FormatException("Неправильний формат CSV.");
+                        }
+
+                        string name = values[0]; // Назва товару  
+
+                        if (!decimal.TryParse(values[1], out decimal price)) // Ціна товару  
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            throw new FormatException($"Ціна '{values[1]}' має неправильний формат.");
+                        }
+
+                        string category = values[2]; // Категорія товару  
+
+                        products.Add(new Product { Name = name, Price = price, Category = category });
                     }
-
-                    string name = values[0];                                //  Назва товару
-
-                    if (!decimal.TryParse(values[1], out decimal price))    //  Ціна товару
+                    catch (FormatException ex)
                     {
-                        throw new FormatException($"\u001b[31mЦіна '{values[1]}' має неправильний формат.\u001b[0m");
+                        // Виведення повідомлення про помилку  
+                        Console.WriteLine(ex.Message);
                     }
-
-                    string category = values[2];                            //  Категорія товару
-
-                    products.Add(new Product { Name = name, Price = price, Category = category });
+                    finally
+                    {
+                        // Повернення початкового кольору після обробки помилки  
+                        Console.ResetColor();
+                    }
                 }
             }
             return products;
